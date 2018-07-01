@@ -1,9 +1,8 @@
 ﻿using System;
 using MockSharp.AbstractFactories;
+using MockSharp.AbstractFactories.Abstract;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using MockSharp.AbstractFactories.Abstract;
 
 namespace MockSharp.Context
 {
@@ -11,30 +10,26 @@ namespace MockSharp.Context
    {
       public T CreateMockObject()
       {
-         T mockObject = default(T);
+         IFactory<T> factory = null;
 
          if (typeof(IEnumerable).IsAssignableFrom(typeof(T)))
          {
-            CollectionFactory<T> collectionFactory = new CollectionFactory<T>();
-            mockObject = collectionFactory.Create();
+            factory = new CollectionFactory<T>();
          }
          else if (typeof(T).IsArray)
          {
-            ArrayFactory<T> arrayFactory = new ArrayFactory<T>();
-            mockObject = arrayFactory.Create();
+            factory = new ArrayFactory<T>();
          }
          else if (typeof(T).IsClass && typeof(T) != typeof(string))
          {
-            ClassFactory<T> classFactory = new ClassFactory<T>();
-            mockObject = classFactory.Create();
+            factory = new ClassFactory<T>();
          }
          else if (typeof(T).IsPrimitive)
          {
-            PrimitiveFactory<T> primitiveFactory = new PrimitiveFactory<T>();
-            mockObject = primitiveFactory.Create();
+            factory = new PrimitiveFactory<T>();
          }
 
-         return mockObject;
+         return factory.Create();
       }
    }
 }
