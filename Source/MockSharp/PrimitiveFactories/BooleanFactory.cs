@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MockSharp.PrimitiveFactories.Abstract;
+﻿using MockSharp.PrimitiveFactories.Abstract;
 
 namespace MockSharp.PrimitiveFactories
 {

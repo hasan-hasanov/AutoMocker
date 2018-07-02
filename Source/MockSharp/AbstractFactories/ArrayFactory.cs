@@ -1,6 +1,6 @@
-﻿using System;
-using MockSharp.AbstractFactories.Abstract;
+﻿using MockSharp.AbstractFactories.Abstract;
 using MockSharp.Utils;
+using System;
 
 namespace MockSharp.AbstractFactories
 {

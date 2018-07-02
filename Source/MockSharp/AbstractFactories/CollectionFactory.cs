@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using MockSharp.AbstractFactories.Abstract;
+﻿using MockSharp.AbstractFactories.Abstract;
 using MockSharp.CollectionFactories;
 using MockSharp.CollectionFactories.Abstract;
+using System.Collections;
 
 namespace MockSharp.AbstractFactories
 {
