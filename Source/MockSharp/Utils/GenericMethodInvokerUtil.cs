@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace MockSharp.Utils
 {
@@ -9,17 +7,19 @@ namespace MockSharp.Utils
    {
       public object InvokeMockObject<T>(Type type, PropertyInfo property, object currentObject)
       {
-         MethodInfo method = typeof(AutoMocker).GetMethod("MockObject");
-         MethodInfo generic = method.MakeGenericMethod(type);
-         object result = generic.Invoke(null, null);
-         object concreteResult = Convert.ChangeType(result, type);
-
+         object concreteResult = GetMockObjectResult(type);
          property.SetValue(currentObject, concreteResult);
 
          return currentObject;
       }
 
       public object InvokeMockObject<T>(Type type)
+      {
+         object concreteResult = GetMockObjectResult(type);
+         return concreteResult;
+      }
+
+      private object GetMockObjectResult(Type type)
       {
          MethodInfo method = typeof(AutoMocker).GetMethod("MockObject");
          MethodInfo generic = method.MakeGenericMethod(type);
