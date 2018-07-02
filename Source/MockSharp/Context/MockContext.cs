@@ -26,6 +26,10 @@ namespace MockSharp.Context
          {
             factory = new ClassFactory<T>();
          }
+         else if (typeof(T).IsValueType)
+         {
+            factory = null; //TODO: Handle structs
+         }
 
          return factory.Create();
       }

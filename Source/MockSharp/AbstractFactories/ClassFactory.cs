@@ -1,6 +1,8 @@
 ﻿using MockSharp.AbstractFactories.Abstract;
 using MockSharp.Utils;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace MockSharp.AbstractFactories
@@ -10,7 +12,7 @@ namespace MockSharp.AbstractFactories
       public T Create()
       {
          T mockObject = (T)Activator.CreateInstance(typeof(T));
-         PropertyInfo[] properties = typeof(T).GetProperties();
+         IEnumerable<PropertyInfo> properties = typeof(T).GetProperties().Where(p => p.CanWrite);
 
          GenericMethodInvokerUtil method = new GenericMethodInvokerUtil();
 
