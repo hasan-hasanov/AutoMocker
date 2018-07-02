@@ -1,4 +1,6 @@
-﻿using MockSharp.AbstractFactories.Abstract;
+﻿using System;
+using MockSharp.AbstractFactories.Abstract;
+using MockSharp.Utils;
 
 namespace MockSharp.AbstractFactories
 {
@@ -6,7 +8,15 @@ namespace MockSharp.AbstractFactories
    {
       public T Create()
       {
-         return default(T);
+         var genericMethodInvoker = new GenericMethodInvokerUtil();
+         Array array = Activator.CreateInstance(typeof(T), new object[] { RandomUtil.Instance.Next(1, 100) }) as Array;
+         for (int i = 0; i < array.Length; i++)
+         {
+            Type arrayElementType = typeof(T).GetElementType();
+            array.SetValue(genericMethodInvoker.InvokeMockObject<T>(arrayElementType), i);
+         }
+
+         return (T)Convert.ChangeType(array, typeof(T));
       }
    }
 }

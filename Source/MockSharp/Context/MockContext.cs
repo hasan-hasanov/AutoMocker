@@ -12,21 +12,21 @@ namespace MockSharp.Context
       {
          IFactory<T> factory = null;
 
-         if (typeof(IEnumerable).IsAssignableFrom(typeof(T)))
+         if (typeof(T).IsPrimitive || typeof(T) == typeof(string))
          {
-            factory = new CollectionFactory<T>();
+            factory = new PrimitiveFactory<T>();
          }
          else if (typeof(T).IsArray)
          {
             factory = new ArrayFactory<T>();
          }
+         else if (typeof(IEnumerable).IsAssignableFrom(typeof(T)))
+         {
+            factory = new CollectionFactory<T>();
+         }
          else if (typeof(T).IsClass && typeof(T) != typeof(string))
          {
             factory = new ClassFactory<T>();
-         }
-         else if (typeof(T).IsPrimitive)
-         {
-            factory = new PrimitiveFactory<T>();
          }
 
          return factory.Create();

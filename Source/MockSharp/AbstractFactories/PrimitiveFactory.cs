@@ -10,21 +10,21 @@ namespace MockSharp.AbstractFactories
    {
       private readonly Dictionary<Type, IPrimitiveFactory<T>> _primitiveFactories = new Dictionary<Type, IPrimitiveFactory<T>>()
       {
-         { typeof(string), (IPrimitiveFactory<T>)new StringFactory() },
-         { typeof(bool), (IPrimitiveFactory<T>)null },
-         { typeof(byte), (IPrimitiveFactory<T>)null },
-         { typeof(sbyte), (IPrimitiveFactory<T>)null },
-         { typeof(char), (IPrimitiveFactory<T>)null },
-         { typeof(decimal), (IPrimitiveFactory<T>)null },
-         { typeof(double), (IPrimitiveFactory<T>)null },
-         { typeof(float), (IPrimitiveFactory<T>)null },
-         { typeof(int), (IPrimitiveFactory<T>)null },
-         { typeof(uint), (IPrimitiveFactory<T>)null },
-         { typeof(long), (IPrimitiveFactory<T>)null },
-         { typeof(ulong), (IPrimitiveFactory<T>)null },
-         { typeof(short), (IPrimitiveFactory<T>)null },
-         { typeof(ushort), (IPrimitiveFactory<T>)null },
-         { typeof(object), (IPrimitiveFactory<T>)null },
+         { typeof(string), new StringFactory() as IPrimitiveFactory<T> },
+         { typeof(bool), new BooleanFactory() as IPrimitiveFactory<T> },
+         { typeof(byte), null as IPrimitiveFactory<T> },
+         { typeof(sbyte), null as IPrimitiveFactory<T> },
+         { typeof(char), null as IPrimitiveFactory<T> },
+         { typeof(decimal), null as IPrimitiveFactory<T> },
+         { typeof(double), null as IPrimitiveFactory<T> },
+         { typeof(float), null as IPrimitiveFactory<T> },
+         { typeof(int), null as IPrimitiveFactory<T> },
+         { typeof(uint), null as IPrimitiveFactory<T> },
+         { typeof(long), null as IPrimitiveFactory<T> },
+         { typeof(ulong), null as IPrimitiveFactory<T> },
+         { typeof(short), null as IPrimitiveFactory<T> },
+         { typeof(ushort), null as IPrimitiveFactory<T> },
+         { typeof(object), null as IPrimitiveFactory<T> },
       };
 
       public T Create()
