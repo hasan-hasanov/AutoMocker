@@ -18,6 +18,9 @@ namespace MockSharp.AbstractFactories
 
          foreach (PropertyInfo property in properties)
          {
+            if (property.PropertyType == typeof(T))
+               throw new Exception("Circular properties are not supported!");
+
             method.InvokeMockObject<T>(property.PropertyType, property, mockObject);
          }
 
