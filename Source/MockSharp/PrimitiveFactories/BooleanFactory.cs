@@ -1,4 +1,5 @@
 ﻿using MockSharp.PrimitiveFactories.Abstract;
+using MockSharp.Utils;
 
 namespace MockSharp.PrimitiveFactories
 {
@@ -6,7 +7,7 @@ namespace MockSharp.PrimitiveFactories
    {
       public bool Create()
       {
-         return true;
+         return RandomUtil.Instance.NextDouble() >= 0.5;
       }
    }
 }

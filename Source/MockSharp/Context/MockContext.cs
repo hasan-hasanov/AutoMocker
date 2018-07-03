@@ -10,7 +10,7 @@ namespace MockSharp.Context
       {
          IFactory<T> factory = null;
 
-         if (typeof(T).IsPrimitive || typeof(T) == typeof(string))
+         if (typeof(T).IsPrimitive || typeof(T) == typeof(string) || typeof(T) == typeof(decimal))
          {
             factory = new PrimitiveFactory<T>();
          }
