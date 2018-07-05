@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoMocker", "AutoMocker\AutoMocker.csproj", "{EAFE2F59-9DC1-47AF-9277-796E0A12270E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAFE2F59-9DC1-47AF-9277-796E0A12270E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAFE2F59-9DC1-47AF-9277-796E0A12270E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAFE2F59-9DC1-47AF-9277-796E0A12270E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAFE2F59-9DC1-47AF-9277-796E0A12270E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE177052-2A1D-435D-BF12-3BD14E019EAB}
+	EndGlobalSection
+EndGlobal
