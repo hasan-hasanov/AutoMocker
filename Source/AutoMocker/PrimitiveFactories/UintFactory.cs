@@ -1,13 +1,13 @@
 ﻿using AutoMocker.PrimitiveFactories.Abstract;
-using System;
+using AutoMocker.Utils;
 
 namespace AutoMocker.PrimitiveFactories
 {
    public class UintFactory : IPrimitiveFactory<uint>
-    {
-       public uint Create()
-       {
-          throw new NotImplementedException();
-       }
-    }
+   {
+      public uint Create()
+      {
+         return (uint)(RandomUtil.Instance.Next(1 << 30)) << 2 | (uint)(RandomUtil.Instance.Next(1 << 2));
+      }
+   }
 }

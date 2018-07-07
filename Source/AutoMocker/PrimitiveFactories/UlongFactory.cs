@@ -1,4 +1,5 @@
 ﻿using AutoMocker.PrimitiveFactories.Abstract;
+using AutoMocker.Utils;
 using System;
 
 namespace AutoMocker.PrimitiveFactories
@@ -7,7 +8,9 @@ namespace AutoMocker.PrimitiveFactories
    {
       public ulong Create()
       {
-         throw new NotImplementedException();
+         byte[] buffer = new byte[sizeof(ulong)];
+         RandomUtil.Instance.NextBytes(buffer);
+         return BitConverter.ToUInt64(buffer, 0);
       }
    }
 }

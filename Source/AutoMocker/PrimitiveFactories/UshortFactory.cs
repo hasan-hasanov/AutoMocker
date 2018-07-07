@@ -1,5 +1,5 @@
 ﻿using AutoMocker.PrimitiveFactories.Abstract;
-using System;
+using AutoMocker.Utils;
 
 namespace AutoMocker.PrimitiveFactories
 {
@@ -7,7 +7,7 @@ namespace AutoMocker.PrimitiveFactories
     {
        public ushort Create()
        {
-          throw new NotImplementedException();
-       }
+         return (ushort)RandomUtil.Instance.Next(ushort.MinValue, ushort.MaxValue);
+      }
     }
 }
