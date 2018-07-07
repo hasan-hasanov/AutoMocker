@@ -8,10 +8,7 @@ namespace AutoMocker.PrimitiveFactories
    {
       public sbyte Create()
       {
-         //TODO: Enchance byte array performance
-         byte[] randomByte = new byte[1];
-         RandomUtil.Instance.NextBytes(randomByte);
-         return Convert.ToSByte(randomByte[0]);
+         return Convert.ToSByte(RandomUtil.Instance.Next(sbyte.MinValue, sbyte.MaxValue));
       }
    }
 }

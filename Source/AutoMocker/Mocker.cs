@@ -2,7 +2,7 @@
 
 namespace AutoMocker
 {
-   public class AutoMocker
+   public class Mocker
    {
       public T MockObject<T>()
       {
