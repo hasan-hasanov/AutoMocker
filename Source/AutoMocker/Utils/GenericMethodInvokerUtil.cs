@@ -21,7 +21,7 @@ namespace AutoMocker.Utils
 
       private object GetMockObjectResult(Type type)
       {
-         MethodInfo method = typeof(Mocker).GetMethod("MockObject");
+         MethodInfo method = typeof(Mocker).GetMethod("MockObject", new Type[0] { });
          MethodInfo generic = method.MakeGenericMethod(type);
 
          object instance = Activator.CreateInstance(typeof(Mocker));
